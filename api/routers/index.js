@@ -12,8 +12,8 @@ const cleanFile = (fileName) => {
     return file;
 };
 
-const loadModules = async (version) => {
-    
+const loadModules = async () => {
+    const version = '1.0.0'
     if(platform == "win32") PATH_ROUTERS = path.dirname(new URL(import.meta.url).pathname).replace(/^\/(\w\:)/, '$1');
     else PATH_ROUTERS = path.dirname(new URL(import.meta.url).pathname);
     PATH_ROUTERS += `/v${(version.split("."))[0]}`;
