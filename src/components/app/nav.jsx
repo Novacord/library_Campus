@@ -74,7 +74,7 @@ router.push({
 });
 router.push({
   to: "/informacion",
-  text: "Informacion",
+  text: "libros",
   private: false,
 });
 
