@@ -11,10 +11,9 @@ function AuthProvider({ children }){
 
     const [user, setUser] = React.useState(null)
 
-    const login = ({ username })=>{
-        const isAdmin = adminList.find(admin => admin === username)
-        setUser({ username, isAdmin })
-        navigate('/profile')
+    const login = (data)=>{
+        setUser(data)
+        navigate('/perfil')
     }
 
     const logoaut = ()=>{

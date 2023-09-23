@@ -5,6 +5,12 @@ import { events } from "@react-three/fiber";
 
 const Login = () => {
 
+    const auth = useAuth();
+
+    const login = (data)=>{
+        auth.login(data)
+    }
+
     return (
         <>
             <div className='div-centrado'>
@@ -28,7 +34,7 @@ const Login = () => {
                             if(event.data){
                                 sessionStorage.setItem('user', JSON.stringify(event.data))
                                 popup.close()
-                                console.log(event.data)
+                                login(event.data)
                             }
                         }
                     })
@@ -39,6 +45,7 @@ const Login = () => {
                     <img src="https://cdn-icons-png.flaticon.com/512/195441.png" alt="" />
                 </button>
             </div>
+
         </>
     );
 };
