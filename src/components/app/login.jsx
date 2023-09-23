@@ -9,6 +9,7 @@ const Login = () => {
 
     const login = (data)=>{
         auth.login(data)
+        window.location.reload();
     }
 
     return (

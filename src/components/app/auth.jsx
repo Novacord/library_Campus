@@ -38,11 +38,18 @@ function useAuth(){
 function AutRoute(props){
     const auth = useAuth()
 
-    if (!auth.user) {
+    const items = sessionStorage.getItem('items');
+    if (items) {
+        // Redirige al usuario a la ruta principal
+        return <Navigate to="/" />
+    }
+
+    auth.user = items
+
+    if (auth.user) {
         return <Navigate to="/login" />
     }
 
     return props.children
 }
-
 export { AuthProvider, useAuth, AutRoute }

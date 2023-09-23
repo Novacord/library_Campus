@@ -10,13 +10,13 @@ const Nav = () => {
     maxWidth: 600,
   });
 
-  const navItems = router.map((router) => (
-    <motion.li key={router.to}>
-      <NavLink to={router.to} className="nav-link">
-        {router.text}
-      </NavLink>
-    </motion.li>
-  ));
+  const items = sessionStorage.getItem('user');
+
+  const navItems = items
+    ? router.filter((router) => !router.publicOnly)
+    : router.filter((router) => !router.private);
+
+  console.log(navItems)
 
   const navListVariants = {
     closed: {
@@ -42,13 +42,29 @@ const Nav = () => {
           initial="closed"
           animate={open ? "open" : "closed"}
         >
-          {navItems}
+          {navItems.map((router) => {
+            return (
+              <motion.li key={router.to}>
+                <NavLink to={router.to} className="nav-link">
+                  {router.text}
+                </NavLink>
+              </motion.li>
+            );
+          })}
         </ul>
       )}
 
       {!isMobile && (
         <ul className="nav-list">
-          {navItems}
+          {navItems.map((router) => {
+            return (
+              <motion.li key={router.to}>
+                <NavLink to={router.to} className="nav-link">
+                  {router.text}
+                </NavLink>
+              </motion.li>
+            );
+          })}
         </ul>
       )}
 

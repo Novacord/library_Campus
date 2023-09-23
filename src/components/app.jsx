@@ -26,8 +26,8 @@ const App = () =>{
                         <Route path='/login' element={<Login />}  />
                         <Route path='/logoaut' element={<AutRoute><Logoaut /></AutRoute>} />
             
-                        <Route path='/perfil' element={<Perfil />} />
-                        <Route path='/reservar' element={<AutRoute><Reservar /></AutRoute>} />
+                        <Route path='/perfil' element={<AutRoute><Perfil /></AutRoute>} />
+                        <Route path='/reservar' element={<Reservar />} />
             
                         <Route path='*' element={<p>Not Found</p>} />
                     </Routes>

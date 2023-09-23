@@ -25,4 +25,12 @@ router.get('/informacion', (req, res)=>{
     res.send(user)
 })
 
+router.get('/logout', (req, res)=>{
+    req.logout(function (err) {
+      if (err) return next(err);
+    })
+    console.log('salio')
+    res.json({ msg: "logout session" });
+})
+
 export { router };
