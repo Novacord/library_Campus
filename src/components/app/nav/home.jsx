@@ -7,12 +7,28 @@ const Home = ()=>{
 
     const items = [
         {
-          title: 'Panel 1',
-          content: 'Este es el contenido del panel 1.',
+          title: 'como reservo?',
+          content: `
+          Accede al sitio web o aplicación móvil de la biblioteca.
+          Busca el libro que deseas reservar. Puedes buscarlo por título, autor o tema.
+          Haz clic en el botón "Reservar".
+          Rellena el formulario de reserva. El formulario suele solicitar tu nombre, dirección y número de teléfono.
+          y espere a que te confirmen la reserva.
+          `,
         },
         {
-          title: 'Panel 2',
-          content: 'Este es el contenido del panel 2.',
+          title: 'que generos manejan?',
+          content: `
+          Ficción,Literatura,Libros académicos etc.  
+          `,
+        },
+        {
+            title: 'donde queda la biblioteca?',
+            content: `
+            Calle del Arcoíris, 1
+            Ciudad de los cuentos
+            País de las maravillas
+            `,
         },
     ];
 
@@ -39,7 +55,12 @@ const Home = ()=>{
                 <p>Visita la página web de Campus library y explora sus recursos. Lee la documentación de Campus library para aprender cómo usar sus servicios y herramientas. No dudes en pedir ayuda a los bibliotecarios.</p>
 
                 <p>Campus library es una herramienta valiosa que puede ayudarte a aprender, investigar y crear. Al aprovechar al máximo sus servicios y herramientas, podrás sacarle el máximo partido.</p>
-                <Accordion items={items} />
+                <Accordion
+                    items={items}
+                    defaultActiveItem={0}
+                    className="accordion"
+                />
+                <img src="../../../../public/libro-biblioteca-libro-texto-abierto.jpg" alt="" />
             </div>
         </div>
     )

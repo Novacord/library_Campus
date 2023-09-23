@@ -249,7 +249,11 @@ footer{
     width: 100%;
     display: flex;
     gap: 20px;
-    
+    font-family: Montserrat, sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 2px;
+    padding: 20px 0;
 }
 
 footer div{
@@ -263,5 +267,103 @@ footer div{
     font-family: Montserrat, sans-serif;
     display: flex;
     flex-direction: row-reverse;
+}
+
+.redes img{
+    width: 30%;
+}
+
+.redes div{
+    gap: 20px;
+}
+
+.botonPregunta {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .botonPregunta li {
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .botonPregunta li button {
+    background-color: #ffffff;
+    border: none;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .botonPregunta li button:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .preguntas {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 3px;
+  }
+  @media (max-width: 560px) {
+    .botonPregunta {
+        flex-direction: column;
+    }
+    .botonPregunta li button:hover {
+        width: 50%;
+    }
+    .botonPregunta li{
+        width: 90%;
+    }
+    .botonPregunta li button:hover {
+        background-color: white;
+        color: none;
+    }
+}
+
+.contedino img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(0.5);
+    padding: 20px 0;
+    border-radius: 3px;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: Montserrat, sans-serif;
+
+}
+
+.tabla thead {
+    background-color: #ccc;
+    text-align: center;
+}
+
+.tabla table {
+    width: 100%;
+    grid-template-columns: 1fr 1fr 0.5fr 0.5fr;
+    grid-gap: 10px;
+}
+
+.tabla th,
+.tabla td {
+    padding: 10px;
+    text-align: center;
 }
 

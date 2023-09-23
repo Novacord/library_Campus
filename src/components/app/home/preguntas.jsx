@@ -1,47 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState,Fragment } from 'react';
 
 const Accordion = ({ items }) => {
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState(0);
+
+  const renderItem = (item, index) => {
+    return (
+      <li key={index}>
+        <button onClick={() => setActiveItem(index)}>
+          {item.title}
+        </button>
+      </li>
+    );
+  };
+
+  const renderContent = () => {
+    if (items.length > 0) {
+      return (
+        <Fragment>
+          <ul className='botonPregunta' style={{
+            backgroundColor: '#ffffff',
+            border: '1px solid #ccc',
+          }}>
+            {items.map(renderItem)}
+          </ul>
+          <div className='preguntas' style={{
+            backgroundColor: '#000000',
+            color: '#ffffff',
+          }}>
+            {items[activeItem].content}
+          </div>
+        </Fragment>
+      );
+    } else {
+      return null;
+    }
+  };
 
   return (
     <div>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>
-            <button onClick={() => setActiveItem(index)}>
-              {item.title}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <div>
-        {activeItem && <div>{items[activeItem].content}</div>}
-      </div>
+      {renderContent()}
     </div>
   );
 };
 
-const Preguntas = ()=>{
-    const [open, setOpen] = useState(false);
-    return(
-    <li>
-        <button onClick={() => setOpen(!open)}>
-          {title}
-        </button>
-        {open && <div>{content}</div>}
-      </li>
-    )
-}
-
-const items = [
-    {
-      title: 'Panel 1',
-      content: 'Este es el contenido del panel 1.',
-    },
-    {
-      title: 'Panel 2',
-      content: 'Este es el contenido del panel 2.',
-    },
-  ];
-
-export default Preguntas;
+export default Accordion;
