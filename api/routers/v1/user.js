@@ -1,12 +1,24 @@
 import { Router } from "express";
 import { validate } from "../../validations/validateService.js";
 import routesVersioning  from 'express-routes-versioning';
-import passport from "passport";
+import passport from "passport";    
 
 const router = Router()
 const versiones = routesVersioning()
 
-router.get('/login', passport.authenticate('discord'))
+router.get('/login', passport.authenticate('discord'), (req, res) => {
+    const userString = JSON.stringify(req.user)
+    res.send(`
+    <!doctype html>
+<html lang="en">
+  <body>
+    <script>
+        window.opener.postMessage(${userString}, 'http://localhost:5173/')
+    </script>
+  </body>
+</html>
+    `)
+})
 
 router.get('/informacion', (req, res)=>{
     const user = req.user;
