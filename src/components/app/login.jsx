@@ -17,7 +17,7 @@ const Login = () => {
             <div className='div-centrado'>
                 <button type="submit" className="boton-grande" onClick={()=>{
                     const popup = window.open(
-                        "http://127.10.10.10:3000/api/user/login",
+                        "http://127.10.10.10:5000/api/user/login",
                         "targetWindow",
                         `
                         toolbar=no,
@@ -31,7 +31,7 @@ const Login = () => {
                         `
                     )
                     window.addEventListener("message", event => {
-                        if (event.origin === 'http://127.10.10.10:3000'){
+                        if (event.origin === 'http://127.10.10.10:5000/'){
                             if(event.data){
                                 sessionStorage.setItem('user', JSON.stringify(event.data))
                                 popup.close()
