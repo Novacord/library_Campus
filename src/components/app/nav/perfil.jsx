@@ -15,25 +15,14 @@ const Perfil = () => {
             setUser(JSON.parse(userSessionStorage));
         }
     }, [auth.user]);
-
-    const printSessionStorage = () => {
-        const items = sessionStorage.getItem('items');
-        if (items) {
-            const itemArray = JSON.parse(items);
-            itemArray.forEach(item => console.log(item));
-        } else {
-            console.log('No hay elementos en el session storage');
-        }
-    }
-
+    console.log(user)
     return (
         <>
             <div className='div-centrado'>
-                {user && (
+                {user && ( 
                     <div>
                         <h1>{user.username}</h1>
-                        <img src={user.avatar} alt={user.username} />
-                        <button onClick={printSessionStorage}>Imprimir session storage</button>
+                        <img src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`} alt={user.username} />
                     </div>
                 )}
             </div>
