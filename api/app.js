@@ -14,7 +14,7 @@ app
 
     .use(cors())
 
-    .use(rateLimit)
+    // .use(rateLimit)
 
     .use(express.json())
 

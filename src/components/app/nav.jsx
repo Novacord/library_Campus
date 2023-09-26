@@ -104,7 +104,7 @@ const router = [];
 
 router.push({
   to: "/",
-  text: "Home",
+  text: "Inicio",
   private: false,
 });
 router.push({
