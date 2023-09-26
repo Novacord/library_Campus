@@ -22,7 +22,10 @@ const Logoaut = () => {
     };
 
     return (
-        <>
+        <>  
+            <div className="fondoLo">
+                <img src="../../../../public/hermoso-cielo-nocturno-estrellas-brillantes.jpg" alt="" />
+            </div>
             {open && (
                 <div className="modal" style={{
                     position: "absolute",
@@ -36,8 +39,8 @@ const Logoaut = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h2>Logout</h2>
-                            <button>
-                                <Link to='/perfil'>dasda</Link>
+                            <button className="botonCerrar">
+                                <Link to='/perfil'>cerrar</Link>
                             </button>
                         </div>
                         <div className="modal-body">

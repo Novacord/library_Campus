@@ -3,16 +3,14 @@ import { useAuth } from './auth';
 import { Navigate } from "react-router-dom";
 import { events } from "@react-three/fiber";
 
+const CAMPUS_LANDS_SERVER_NAME = 'CampusLands 🚀';
+
 const Login = () => {
 
     const auth = useAuth();
 
     const login = (data)=>{
         auth.login(data)
-    }
-
-    const openWin = ()=>{
-
     }
 
     return (
@@ -50,9 +48,15 @@ const Login = () => {
                     window.addEventListener("message", event => {
                         if (event.origin === 'http://127.10.10.10:3000'){
                             if(event.data){
-                                popup.close()
-                                sessionStorage.setItem('user', JSON.stringify(event.data))
-                                login(event.data)
+                                const isCampusLandsMember = event.data.guilds.some((guild) => guild.name === CAMPUS_LANDS_SERVER_NAME);
+                                if (isCampusLandsMember) {
+                                    sessionStorage.setItem('user', JSON.stringify(event.data))
+                                    login(event.data)
+                                    popup.close()
+                                } else {
+                                    popup.close()
+                                    window.location.href = '/error';
+                                }
                             }
                         }
                     })

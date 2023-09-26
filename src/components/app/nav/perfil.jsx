@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from '../auth';
 import { Navigate } from "react-router-dom";
 import { events } from "@react-three/fiber";
+import { useMediaQuery } from "react-responsive";
 
 const Perfil = () => {
 
     const auth = useAuth();
 
     const [user, setUser] = useState(null);
+
+    const isMobile = useMediaQuery({
+      maxWidth: 600,
+    });
 
     useEffect(() => {
         const userSessionStorage = sessionStorage.getItem('user');
@@ -21,9 +26,9 @@ const Perfil = () => {
     const campus = user?.guilds.filter((guild) => guild.name === 'CampusLands 🚀');
 
     return (
-        <div className="div-centrado">
+        <div className="centerPerfil">
         {user && (
-          <div>
+          <div className="perfil">
             <h1>{user.username}</h1>
             <img src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`} alt={user.username} />
   
@@ -43,23 +48,6 @@ const Perfil = () => {
                   <strong>Idioma:</strong> {user.locale}
                 </li>
               </ul>
-            </div>
-  
-            <div>
-              <h2>Servidores</h2>
-              <ul>
-                {campus?.length > 0 ? campus.map((guild) => (
-                  <li key={guild.id}>
-                    <strong>{guild.name}</strong>
-                    <img src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}`} alt={guild.name} />
-                  </li>
-                )) : <p>No perteneces a ningún servidor.</p>}
-              </ul>
-            </div>
-  
-            <div>
-              <h2>Acciones</h2>
-              <a href={`https://discord.com/users/${user.id}`}>Contactar</a>
             </div>
           </div>
         )}

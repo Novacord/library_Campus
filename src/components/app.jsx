@@ -9,6 +9,7 @@ import  Login  from './app/login'
 import Logoaut from './app/nav/logoaut'
 import Perfil from './app/nav/perfil'
 import Reservar from './app/nav/reservar'
+import Error from './app/error'
 
 
 
@@ -28,6 +29,8 @@ const App = () =>{
             
                         <Route path='/perfil' element={<AutRoute><Perfil /></AutRoute>} />
                         <Route path='/reservar' element={<Reservar />} />
+
+                        <Route path='/error' element={<Error />} />
             
                         <Route path='*' element={<p>Not Found</p>} />
                     </Routes>

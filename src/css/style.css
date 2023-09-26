@@ -430,8 +430,164 @@ footer div{
     width: 100%;
     border-radius: 50%;
   }
-
+  .noCamper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
   
+  .noCamper h1 {
+    font-size: 2rem;
+    margin-top: 0;
+    text-align: center;
+    color: #f00;
+    font-family: Montserrat, sans-serif;
+  }
+  
+  .noCamper img {
+    width: 30%;
+    margin-top: 20px;
+    animation: bounce 4s infinite;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .perfil{
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+    
+  .perfil img{
+    width: 50%;
+    border-radius: 50%;
+  }
 
+  .centerPerfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 850px;
+    justify-content: center;
+  }
+
+  .modal {
+    font-family: Montserrat, sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .modal-header button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 1rem;
+  }
+  
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 80%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-body p {
+    font-size: 1rem;
+    margin: 0;
+    margin: 70px 0;
+  }
+  
+  .modal-body button {
+    cursor: pointer;
+    background-color: #969696;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .modal-body button a{
+    color: white;
+    text-decoration: none;
+  }
+  
+  .modal-body button:hover {
+    background-color: #4d4040;
+  }
+
+  .botonCerrar{
+    cursor: pointer;
+  }
+
+  .botonCerrar a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .fondoLo{
+    width: 100%;
+  }
+
+  .fondoLo img{
+    width: 100%;
+    height: 850px;
+  }
+
+  .reservaB{
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .reservaB:hover{
+    background: #ccc;
+  }
   
 
