@@ -15,6 +15,7 @@ const Logoaut = () => {
         if (response.ok) {
             // Redirecciona al usuario a la página de inicio
             window.location.reload();
+            Navigate('/')
         } else {
             // Muestra un mensaje de error
             alert('No se pudo realizar el logout');
