@@ -12,7 +12,7 @@ router.get('/login', passport.authenticate('discord'), (req, res) => {
 <html lang="en">
   <body>
     <script>
-        window.opener.postMessage(${userString}, 'http://localhost:5173/')
+        window.opener.postMessage(${userString}, '*')
     </script>
   </body>
 </html>
@@ -29,7 +29,7 @@ router.get('/callback', passport.authenticate('discord'),(req, res) => {  const 
 <html lang="en">
   <body>
     <script>
-        window.opener.postMessage(${userString}, 'http://localhost:5173/')
+        window.opener.postMessage(${userString}, '*')
     </script>
   </body>
 </html>

@@ -421,5 +421,17 @@ footer div{
   }
 
 
+  .imgUser{
+    width: 55px;
+    padding-right: 20px;
+  }
+
+  .imgUser img{
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  
+
   
 

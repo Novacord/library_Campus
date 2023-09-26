@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, Route } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
+import { useAuth } from "./auth";
 
 const Nav = () => {
+
+  const auth = useAuth();
+
   const [open, setOpen] = useState(false);
 
   const isMobile = useMediaQuery({
@@ -16,7 +20,19 @@ const Nav = () => {
     ? router.filter((router) => !router.publicOnly)
     : router.filter((router) => !router.private);
 
-  console.log(navItems)
+  const user = JSON.parse(items);
+
+  // Mueve la asignación de la variable `imgUser` fuera del bloque de código `return` y verifica que la variable `user` no sea nula antes de acceder a sus propiedades
+  let imgUser;
+  if (user && !isMobile) {
+    imgUser = (
+      <div className="imgUser">
+        <img src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`} alt={user.username} />
+      </div>
+    );
+  } else {
+    imgUser = null;
+  }
 
   const navListVariants = {
     closed: {
@@ -77,6 +93,9 @@ const Nav = () => {
         >
           <img src="../../../public/flecha-hacia-abajo-para-navegar.png" alt="" />
         </button>
+      </div>
+      <div>
+        {imgUser}
       </div>
     </div>
   );

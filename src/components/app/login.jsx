@@ -9,15 +9,32 @@ const Login = () => {
 
     const login = (data)=>{
         auth.login(data)
-        window.location.reload();
+    }
+
+    const openWin = ()=>{
+
     }
 
     return (
         <>
             <div className='div-centrado'>
                 <button type="submit" className="boton-grande" onClick={()=>{
-                    const popup = window.open(
-                        "http://127.10.10.10:5000/api/user/login",
+                    window.open(
+                        "http://127.10.10.10:3000/api/user/callback",
+                        "targetWindow",
+                        `
+                        toolbar=no,
+                            location=no,
+                            estatus=no,
+                            menubar=no,
+                            scrollbars=yes,
+                            resizable=yes,
+                            width=620,
+                            height=700
+                        `
+                    )
+                    const popup =  window.open(
+                        "http://127.10.10.10:3000/api/user/callback",
                         "targetWindow",
                         `
                         toolbar=no,
@@ -31,10 +48,10 @@ const Login = () => {
                         `
                     )
                     window.addEventListener("message", event => {
-                        if (event.origin === 'http://127.10.10.10:5000/'){
+                        if (event.origin === 'http://127.10.10.10:3000'){
                             if(event.data){
-                                sessionStorage.setItem('user', JSON.stringify(event.data))
                                 popup.close()
+                                sessionStorage.setItem('user', JSON.stringify(event.data))
                                 login(event.data)
                             }
                         }
@@ -43,12 +60,13 @@ const Login = () => {
                     <img src="https://i0.wp.com/spaniardperformance.com/wp-content/uploads/2023/04/discord-logo.png?ssl=1" alt="" />
                 </button>
                 <button className="boton-grande">
-                    <img src="https://cdn-icons-png.flaticon.com/512/195441.png" alt="" />
+                    <img src="" alt="" />
                 </button>
             </div>
 
         </>
     );
 };
+
 
 export default Login;
