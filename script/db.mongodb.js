@@ -101,4 +101,35 @@ db.createCollection('reservas')
 
 db.createCollection('prestamos')
 
-
+use('library')
+db.reservas.aggregate([
+    {
+        $match: {
+          idUsuario: '545039773761536010',
+        }
+    },
+    {
+        $addFields: {
+          libroObjectId: { $toObjectId: "$libroId" }
+        }
+    },
+    {
+        $lookup: {
+          from: 'productos', 
+          localField: 'libroObjectId',
+          foreignField: '_id',
+          as: 'libro',
+        },
+    },
+    {
+        $project: {
+          _id: 1,
+          idUsuario: 1,
+          usuario: 1,
+          libro: 1, // Incluye el campo 'libro' que contiene la información del producto
+          fechaInicio: 1,
+          fechaFinal: 1,
+          estado: 1,
+        }
+      }
+])

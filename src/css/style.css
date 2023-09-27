@@ -644,3 +644,47 @@ footer div{
   margin-left: 10px;
 }
 
+.Reservar {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Estilo para la lista de reservas */
+.Reservar ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+/* Estilo para cada elemento de la lista */
+.Reservar li {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 10px;
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Estilo para la información del libro */
+.Reservar .info-libro {
+  background-color: #f0f0f0;
+  padding: 10px;
+  justify-content: center;
+}
+
+/* Estilo para las imágenes de los libros */
+.Reservar img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 560px) {
+  .Reservar ul {
+    flex-direction: column;
+  }
+  .Reservar li {
+    width: 100%;
+  }
+}
+

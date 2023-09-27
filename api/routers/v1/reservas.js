@@ -5,4 +5,6 @@ const router = Router();
 
 router.post('/', reserva.postProducto);
 
+router.get('/IdUser/:id', reserva.getReservaId)
+
 export { router };

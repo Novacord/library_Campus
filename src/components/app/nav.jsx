@@ -127,6 +127,12 @@ router.push({
 });
 
 router.push({
+  to: "/reservar-usuario",
+  text: "reservas del usuario",
+  private: true,
+});
+
+router.push({
   to: "/logoaut",
   text: "Logoaut",
   private: true,
