@@ -21,10 +21,6 @@ const Perfil = () => {
         }
     }, [auth.user]);
 
-    // Filtra la lista de servidores para incluir solo los servidores
-    // del campus.
-    const campus = user?.guilds.filter((guild) => guild.name === 'CampusLands 🚀');
-
     return (
         <div className="centerPerfil">
         {user && (
