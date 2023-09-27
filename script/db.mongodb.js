@@ -102,6 +102,14 @@ db.createCollection('reservas')
 db.createCollection('prestamos')
 
 use('library')
+db.usuarios.insertOne(
+    {
+        "username": "Nova",
+        "password": "mjcm20272027"
+    }
+)
+
+use('library')
 db.reservas.aggregate([
     {
         $match: {

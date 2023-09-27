@@ -379,8 +379,8 @@ footer div{
     background-color: white;
     border: 1px solid black;
     position: absolute;
-    top: 100%;
-    left: 100%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
   }
   
@@ -477,25 +477,14 @@ footer div{
     justify-content: center;
   }
 
-  .modal {
-    font-family: Montserrat, sans-serif;
-    position: fixed;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   
   .modal-content {
     width: 500px;
-    height: 300px;
+    height: 340px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: Montserrat, sans-serif;
   }
   
   .modal-header {
@@ -583,21 +572,7 @@ footer div{
   
 
 /* Estilos generales del modal */
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  text-align: center;
-  width: 60%;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-}
+
 
 /* Estilos para el título del modal */
 .modal h2 {
@@ -624,8 +599,7 @@ footer div{
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 10px;
-  margin-left: 20px;
+  margin: 10px;
 }
 
 /* Estilos para el botón de Cerrar */
@@ -767,3 +741,124 @@ footer div{
   background-color: #555; /* Color de fondo gris más oscuro al pasar el ratón */
 }
 
+.modal-reserva {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  width: 40%;
+}
+
+.modal-reserva h2 {
+  margin-top: 0;
+}
+
+.modal-reserva label {
+  font-weight: bold;
+}
+
+.modal-reserva input[type="date"] {
+  width: 95%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.modal-reserva button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.modal-reserva button:last-child {
+  margin-right: 0;
+  background-color: #ff3333;
+}
+
+.modal-reserva button:hover {
+  background-color: #555;
+}
+
+.modal-reserva button:last-child:hover {
+  background-color: #ff0000;
+}
+
+/* Estilos para la modal de inicio de sesión */
+.modalLogin {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modalLogin .modal-content {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  width: 40%;
+}
+
+/* Botón para cerrar la modal */
+.modalLogin .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Estilos para los campos de entrada y el botón en la modal */
+.modalLogin .form-group {
+  margin-bottom: 20px;
+}
+
+.modalLogin .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modalLogin .form-group input[type="text"],
+.modalLogin .form-group input[type="password"] {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modalLogin .modal-content button {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.modalLogin .modal-content button:hover {
+  background-color: #ccc;
+}

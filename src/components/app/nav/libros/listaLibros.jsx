@@ -114,7 +114,7 @@ const ListaLibros = () => {
 
       {/* Modal para la reserva */}
       {modalOpen && (
-        <div className="modal">
+        <div className="modal-reserva">
           <h2>Reservar libro</h2>
           <label>Fecha de inicio:</label>
           <input

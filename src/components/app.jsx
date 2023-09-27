@@ -10,7 +10,7 @@ import Logoaut from './app/nav/logoaut'
 import Perfil from './app/nav/perfil'
 import Reservar from './app/nav/reservar'
 import Error from './app/error'
-
+import Admin from './app/nav/admin'
 
 
 const App = () =>{
@@ -31,6 +31,8 @@ const App = () =>{
                         <Route path='/reservar' element={<Reservar />} />
 
                         <Route path='/reservar-usuario' element={<Reservar />} />
+
+                        <Route path='/admin' element={<Admin />} />
 
                         <Route path='/error' element={<Error />} />
             

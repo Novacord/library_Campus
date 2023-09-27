@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { validate } from '../../validations/validateService.js';
 import routesVersioning from 'express-routes-versioning';
 import passport from "../../helpers/discord.js";
+import user from '../../service/user.js'
 
 const router = Router();
 const versiones = routesVersioning();
@@ -42,5 +43,7 @@ router.get('/logout', (req, res) => {
   console.log('salió');
   res.json({ msg: 'logout session' });
 });
+
+router.post('/login/admin', user.login);
 
 export { router };

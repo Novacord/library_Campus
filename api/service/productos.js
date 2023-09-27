@@ -8,4 +8,4 @@ export default class producto {
         let data = await productos.find().toArray();
         res.status(200).send(data)
     }
-}0
+}
