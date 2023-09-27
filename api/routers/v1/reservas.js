@@ -7,4 +7,6 @@ router.post('/', reserva.postProducto);
 
 router.get('/IdUser/:id', reserva.getReservaId)
 
+router.delete('/:id', reserva.deleteReservaId)
+
 export { router };

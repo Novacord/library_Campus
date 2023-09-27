@@ -13,12 +13,6 @@ export default class Reserva {
             // Obtener el ID del libro reservado
             const libroId = req.body.libroId;
 
-            // Actualizar el estado del libro a "EnProceso"
-            const estadoLibro = await productos.updateOne(
-                { _id: new ObjectId(libroId) },
-                { $set: { estado: 'EnProceso' } }
-            );
-
             // Enviar una respuesta que incluye ambas consultas
             res.status(200).send('ta bien');
         } catch (err) {
@@ -71,6 +65,24 @@ export default class Reserva {
       } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Error al obtener la reserva' });
+      }
+    }
+
+    static async deleteReservaId(req, res) {
+      try {
+        const id = req.params.id;
+    
+        // Utiliza el método deleteOne para eliminar la reserva por su ID
+        const result = await reservas.deleteOne({ _id: new ObjectId(id) });
+    
+        if (result.deletedCount === 1) {
+          res.status(200).json({ message: "Reserva eliminada exitosamente" });
+        } else {
+          res.status(404).json({ error: "Reserva no encontrada" });
+        }
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Error al eliminar la reserva" });
       }
     }
 }
