@@ -27,35 +27,26 @@ const Login = () => {
         setShowLoginModal(false);
     };
 
-    const handleLogin = async() => {
-        try {
-            const username = document.getElementById('username').value; // Obtener el nombre de usuario del campo de entrada
-            const password = document.getElementById('password').value; // Obtener la contraseña del campo de entrada
-
-            // Realizar la solicitud POST a la API de autenticación
-            const response = await axios.post('http://127.10.10.10:3000/api/user/login/admin', {
-                username: username,
-                password: password
-            });
-
-            console.log(response)
-
-            if (response.data) {
-                // El inicio de sesión fue exitoso, puedes realizar acciones adicionales aquí
-                console.log('Inicio de sesión exitoso');
-                sessionStorage.setItem('admin', JSON.stringify(response.data));
-                setRedirectToAdmin(true);
-                // Cerrar la modal después del inicio de sesión exitoso
-                closeLoginModal();
-                
-            } else {
-                console.log('Inicio de sesión fallido');
-                alert('usuario no existente')
-            }
-        } catch (error) {
-            console.error('Error:', error);
+    const handleLogin = async () => {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+      
+        const response = await axios.post('http://127.10.10.10:3000/api/user/login/admin', {
+          username: username,
+          password: password,
+        });
+      
+        console.log(response);
+      
+        if (response.data) {
+          console.log('Inicio de sesión exitoso');
+          sessionStorage.setItem('admin', JSON.stringify(response.data));
+          setRedirectToAdmin(true);
+        } else {
+          console.log('Inicio de sesión fallido');
+          alert('usuario no existente');
         }
-    };
+      };
 
     return (
         <>

@@ -862,3 +862,42 @@ footer div{
 .modalLogin .modal-content button:hover {
   background-color: #ccc;
 }
+
+.adminBotones{
+  display: flex;
+  width: 100%;
+}
+
+.adminBotones a{
+  width: 100%;
+}
+
+.adminBotones a button{
+  width: 90%;
+  margin: 2rem;
+  padding: 70px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.card img{
+  width: 80%;
+  margin: 10px;
+}
+
+.adminBotones button:hover{
+  background: #b8b8b8;
+}
+
+@media (max-width: 920px) {
+  .adminBotones {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .adminBotones button{
+    width: 60%;
+    margin: 1rem;
+  }
+}
+
