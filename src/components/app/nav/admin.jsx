@@ -26,7 +26,7 @@ const Admin = () => {
         </button>
       </Link>
 
-      <Link to={`dsadas`}>
+      <Link to={`prestamos`}>
         <button>
           <Card
             imageSrc="../../../../public/pedir-prestado.png"

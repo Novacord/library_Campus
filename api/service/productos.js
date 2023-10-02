@@ -5,7 +5,7 @@ const productos = db.getInstance().changeCollection('productos').connect()
 
 export default class producto {
     static async getProducto(req, res) {
-        let data = await productos.find().toArray();
+        let data = await productos.find({ estado: "disponible" }).toArray();
         res.status(200).send(data)
     }
 }

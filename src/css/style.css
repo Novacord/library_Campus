@@ -901,3 +901,104 @@ footer div{
   }
 }
 
+/* Estilo para el contenedor principal */
+.containerPrestamos {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  width: 80%;
+  font-family: Montserrat, sans-serif;
+}
+
+/* Estilo para los encabezados */
+.containerPrestamos h1, h2 {
+  text-align: center;
+}
+
+/* Estilo para los campos de entrada y etiquetas */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.containerPrestamos label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.containerPrestamos input[type="date"] {
+  width: 98%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.containerPrestamos input[type="text"], select {
+  width: 98%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Estilo para el botón */
+.containerPrestamos button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.containerPrestamos button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para la lista de préstamos */
+.containerPrestamos ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.containerPrestamos li {
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.containerPrestamos li button {
+  background-color: #dc3545;
+  width: 20%;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.containerPrestamos li button:hover {
+  background-color: #bd2130;
+}
+
+/* Media queries para hacer que el diseño sea responsive */
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  input[type="text"], select {
+    width: 100%;
+  }
+}
+
+
