@@ -31,15 +31,15 @@ const LogautAdmin = () => {
                 }}>
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h2>Logout</h2>
+                            <h2>Cerrar sesion</h2>
                             <button className="botonCerrar">
                                 <Link to='/'>cerrar</Link>
                             </button>
                         </div>
                         <div className="modal-body">
-                            <p>¿Estás seguro de que quieres hacer logout?</p>
+                            <p>¿Estás seguro de que quieres Cerrar sesion?</p>
                             <button type="button" onClick={handleClose}>
-                                <Link to='/'>Logoaut</Link>
+                                <Link to='/'>Cerrar sesion</Link>
                             </button>
                         </div>
                     </div>

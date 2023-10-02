@@ -130,7 +130,7 @@ router.push({
 
 router.push({
   to: "/loguatAdmin",
-  text: "log uat",
+  text: "Cerrar sesion",
   private: true,
 });
 

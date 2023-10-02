@@ -13,6 +13,8 @@ import Admin from './app/nav/admin';
 import NavAdmin from './app/navAdmin';
 import LogautAdmin from './app/nav/logautAdmin';
 import Prestamos from './app/admin/prestamos';
+import Libros from './app/admin/libros';
+
 
 const App = () => {
   const [isAdminVisible, setIsAdminVisible] = useState(false);
@@ -42,6 +44,7 @@ const App = () => {
             <Route path="/reservar-usuario" element={<Reservar />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/prestamos" element={<Prestamos />} />
+            <Route path="/admin/libros" element={<Libros />} />
             <Route path="/error" element={<Error />} />
             <Route path="*" element={<p>Not Found</p>} />
           </Routes>

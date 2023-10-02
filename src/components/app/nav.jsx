@@ -134,7 +134,7 @@ router.push({
 
 router.push({
   to: "/logoaut",
-  text: "Logoaut",
+  text: "Cerrar sesion",
   private: true,
 });
 
