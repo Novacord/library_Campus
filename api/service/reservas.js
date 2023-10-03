@@ -85,4 +85,53 @@ export default class Reserva {
         res.status(500).json({ error: "Error al eliminar la reserva" });
       }
     }
+
+    static async getTodasReservas(req, res) {
+      try {
+        const reservasConLibros = await reservas.aggregate([
+          {
+            $addFields: {
+              libroObjectId: { $toObjectId: "$libroId" }
+            }
+          },
+          {
+            $lookup: {
+              from: "productos", // Nombre de la colección de libros en tu base de datos
+              localField: "libroObjectId",
+              foreignField: "_id",
+              as: "libro"
+            }
+          },
+          {
+            $unwind: "$libro"
+          }
+        ]).toArray();
+    
+        res.status(200).send(reservasConLibros);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Error al obtener las reservas con los detalles de los libros" });
+      }
+    }
+
+    static async actualizarEstadoReserva(req, res) {
+      try {
+        const { reservaId } = req.params; 
+        const nuevoEstado = 'aceptado'; 
+    
+        const result = await reservas.updateOne({ _id: new ObjectId(reservaId) }, { $set: { estado: nuevoEstado } });
+    
+        if (result.modifiedCount > 0) {
+          // Si se actualizó la reserva, envía una respuesta exitosa.
+          res.status(200).json({ message: `La reserva con ID ${reservaId} fue cambiada a aceptado` });
+        } else {
+          // Si no se encontró la reserva para actualizar, envía un mensaje de error apropiado.
+          res.status(404).json({ message: `No se encontró la reserva con ID ${reservaId}` });
+        }
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Error al cambiar el estado de la reserva a aceptado" });
+      }
+    }
+    
 }

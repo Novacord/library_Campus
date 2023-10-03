@@ -14,6 +14,7 @@ import NavAdmin from './app/navAdmin';
 import LogautAdmin from './app/nav/logautAdmin';
 import Prestamos from './app/admin/prestamos';
 import Libros from './app/admin/libros';
+import Reservas from './app/admin/reservas';
 
 
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/prestamos" element={<Prestamos />} />
             <Route path="/admin/libros" element={<Libros />} />
+            <Route path="/admin/reservas" element={<Reservas />} />
             <Route path="/error" element={<Error />} />
             <Route path="*" element={<p>Not Found</p>} />
           </Routes>

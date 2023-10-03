@@ -25,7 +25,7 @@ const Libros = () => {
   // Función para cargar la lista de libros desde la API
   const cargarLibros = async () => {
     try {
-      const response = await axios.get(apiUrl);
+      const response = await axios.get("http://127.10.10.10:3000/api/productos/todos");
       setLibros(response.data);
     } catch (error) {
       console.error("Error al cargar libros:", error);
@@ -34,7 +34,18 @@ const Libros = () => {
 
   // Función para crear un nuevo libro
   const crearLibro = async () => {
-    try {
+    if (
+      !nuevoLibro.titulo ||
+      !nuevoLibro.genero ||
+      !nuevoLibro.editorial ||
+      !nuevoLibro.autor ||
+      !nuevoLibro.id
+    ) {
+      // Muestra un mensaje de error o realiza alguna acción adecuada
+      console.error("Todos los campos son obligatorios.");
+      return;
+    }
+
       await axios.post(apiUrl, nuevoLibro);
       cargarLibros(); // Recargar la lista después de agregar un nuevo libro
       setNuevoLibro({
@@ -46,9 +57,6 @@ const Libros = () => {
         img: "",
         estado: "disponible",
       }); // Limpiar el formulario de entrada
-    } catch (error) {
-      console.error("Error al crear el libro:", error);
-    }
   };
 
   // Función para editar un libro

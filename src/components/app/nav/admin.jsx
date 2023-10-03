@@ -17,7 +17,7 @@ const Admin = () => {
 
   return (
     <div className='adminBotones'>
-      <Link to={`dsadas`}>
+      <Link to={`reservas`}>
         <button>
           <Card
             imageSrc="../../../../public/reserva.png"

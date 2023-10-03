@@ -9,4 +9,8 @@ router.get('/IdUser/:id', reserva.getReservaId)
 
 router.delete('/:id', reserva.deleteReservaId)
 
+router.get('/', reserva.getTodasReservas)
+
+router.put('/:reservaId', reserva.actualizarEstadoReserva)
+
 export { router };

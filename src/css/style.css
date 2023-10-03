@@ -1102,3 +1102,46 @@ h1 {
   }
 }
 
+/* Reservas.css */
+
+/* Estilos para el contenedor principal */
+.reservas-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f2f2f2;
+  display: flex;
+}
+
+/* Estilos para las listas de reservas */
+.reservas-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Estilos para cada elemento de reserva */
+.reserva-item {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el botón "Aceptar Reserva" */
+.reserva-item button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Estilos para el botón "Marcar como Devuelta" */
+.reserva-item button.marcar-devuelta {
+  background-color: #dc3545;
+}
+
+.reservas{
+  width: 50%;
+}
