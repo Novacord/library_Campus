@@ -1001,4 +1001,104 @@ footer div{
   }
 }
 
+/* Libros.css */
+
+.libros-container {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 97%;
+}
+
+.form-item {
+  margin-bottom: 10px;
+}
+
+.input-field {
+  width: 93%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.libros-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.libro-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.libro-item button {
+  margin: 0 5px;
+}
+
+.modalEdit {
+  background-color: white;
+  padding: 20px;
+  max-width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.modalEdit button{
+  margin: 10px;
+}
+
+.modalEdit input{
+  width: 95%;
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Puedes ajustar estos estilos según tus preferencias y necesidades específicas. */
+
+@media (max-width: 600px) {
+  .input-field{
+    width: 93% !important;
+  }
+}
 

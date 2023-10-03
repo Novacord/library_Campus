@@ -65,23 +65,30 @@ const Libros = () => {
       return;
     }
   
-    try {
-      await axios.put(`${apiUrl}${editingBookId}`, libroEditado);
+    // Ajustar la estructura de libroEditado al orden y formato esperados por el servidor
+    const libroEditadoFormateado = {
+      titulo: libroEditado.titulo,
+      genero: libroEditado.genero,
+      editorial: libroEditado.editorial,
+      autor: libroEditado.autor,
+      id: libroEditado.id,
+      img: libroEditado.img,
+      estado: libroEditado.estado,
+    };
+    console.log(`${apiUrl}${editingBookId}`)
+
+  
+      await axios.put(`${apiUrl}${editingBookId}`, libroEditadoFormateado);
+      const response = await axios.get(`${apiUrl}${editingBookId}`);
+      const libroActualizado = response.data;
+  
+      // Realiza alguna acción con el objeto actualizado, por ejemplo, mostrarlo en una alerta
+      alert("Libro actualizado: " + JSON.stringify(libroActualizado));
+  
       cargarLibros(); // Recargar la lista después de editar el libro
       closeModal(); // Cerrar la modal
-    } catch (error) {
-      console.error("Error al editar el libro:", error);
-    }
   };
-  // Función para eliminar un libro
-  const eliminarLibro = async (id) => {
-    try {
-      await axios.delete(`${apiUrl}${id}`);
-      cargarLibros(); // Recargar la lista después de eliminar el libro
-    } catch (error) {
-      console.error("Error al eliminar el libro:", error);
-    }
-  };
+  
 
   // Función para abrir la modal de edición
   const openModal = (id) => {
@@ -103,159 +110,13 @@ const Libros = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Libros</h1>
-      <ul>
-        {libros.map((libro) => (
-          <li key={libro._id}>
-            <div>
-              {editando === libro._id ? (
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Título"
-                    value={libroEditado.titulo}
-                    onChange={(e) =>
-                      setLibroEditado({
-                        ...libroEditado,
-                        titulo: e.target.value,
-                      })
-                    }
-                  />
-                  <input
-                    type="text"
-                    placeholder="Género"
-                    value={libroEditado.genero}
-                    onChange={(e) =>
-                      setLibroEditado({
-                        ...libroEditado,
-                        genero: e.target.value,
-                      })
-                    }
-                  />
-                  <input
-                    type="text"
-                    placeholder="Editorial"
-                    value={libroEditado.editorial}
-                    onChange={(e) =>
-                      setLibroEditado({
-                        ...libroEditado,
-                        editorial: e.target.value,
-                      })
-                    }
-                  />
-                  <input
-                    type="text"
-                    placeholder="Autor"
-                    value={libroEditado.autor}
-                    onChange={(e) =>
-                      setLibroEditado({
-                        ...libroEditado,
-                        autor: e.target.value,
-                      })
-                    }
-                  />
-                  <input
-                    type="text"
-                    placeholder="ID"
-                    value={libroEditado.id}
-                    onChange={(e) =>
-                      setLibroEditado({
-                        ...libroEditado,
-                        id: e.target.value,
-                      })
-                    }
-                  />
-                  <input
-                    type="text"
-                    placeholder="URL de la imagen"
-                    value={libroEditado.img}
-                    onChange={(e) =>
-                      setLibroEditado({
-                        ...libroEditado,
-                        img: e.target.value,
-                      })
-                    }
-                  />
-                  <button onClick={editarLibro}>Guardar</button>
-                  <button onClick={closeModal}>Cancelar</button>
-                </div>
-              ) : (
-                <div>
-                  {libro.titulo}
-                  <button onClick={() => openModal(libro._id)}>Editar</button>
-                  <button onClick={() => eliminarLibro(libro._id)}>
-                    Eliminar
-                  </button>
-                </div>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
-
-      {/* Modal de edición */}
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Editar Libro"
-      >
-        <h2>Editar Libro</h2>
-        <input
-          type="text"
-          placeholder="Título"
-          value={libroEditado.titulo}
-          onChange={(e) =>
-            setLibroEditado({ ...libroEditado, titulo: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="Género"
-          value={libroEditado.genero}
-          onChange={(e) =>
-            setLibroEditado({ ...libroEditado, genero: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="Editorial"
-          value={libroEditado.editorial}
-          onChange={(e) =>
-            setLibroEditado({ ...libroEditado, editorial: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="Autor"
-          value={libroEditado.autor}
-          onChange={(e) =>
-            setLibroEditado({ ...libroEditado, autor: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="ID"
-          value={libroEditado.id}
-          onChange={(e) =>
-            setLibroEditado({ ...libroEditado, id: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="URL de la imagen"
-          value={libroEditado.img}
-          onChange={(e) =>
-            setLibroEditado({ ...libroEditado, img: e.target.value })
-          }
-        />
-        <button onClick={editarLibro}>Guardar</button>
-        <button onClick={closeModal}>Cancelar</button>
-      </Modal>
-
+    <div className="libros-container">
+    <h1>Libros</h1>
+    <div className="form-container">
       {/* Formulario de creación de libros */}
-      <div>
+      <div className="form-item">
         <input
+          className="input-field"
           type="text"
           placeholder="Título"
           value={nuevoLibro.titulo}
@@ -264,6 +125,7 @@ const Libros = () => {
           }
         />
         <input
+          className="input-field"
           type="text"
           placeholder="Género"
           value={nuevoLibro.genero}
@@ -272,6 +134,7 @@ const Libros = () => {
           }
         />
         <input
+          className="input-field"
           type="text"
           placeholder="Editorial"
           value={nuevoLibro.editorial}
@@ -280,6 +143,7 @@ const Libros = () => {
           }
         />
         <input
+          className="input-field"
           type="text"
           placeholder="Autor"
           value={nuevoLibro.autor}
@@ -288,6 +152,7 @@ const Libros = () => {
           }
         />
         <input
+          className="input-field"
           type="text"
           placeholder="ID"
           value={nuevoLibro.id}
@@ -296,6 +161,7 @@ const Libros = () => {
           }
         />
         <input
+          className="input-field"
           type="text"
           placeholder="URL de la imagen"
           value={nuevoLibro.img}
@@ -303,9 +169,186 @@ const Libros = () => {
             setNuevoLibro({ ...nuevoLibro, img: e.target.value })
           }
         />
-        <button onClick={crearLibro}>Agregar Libro</button>
+        <button className="button" onClick={crearLibro}>
+          Agregar Libro
+        </button>
       </div>
     </div>
+
+    <ul className="libros-list">
+      {libros.map((libro) => (
+        <li key={libro._id} className="libro-item">
+          <div>
+            {editando === libro._id ? (
+              <div className="form-item">
+                <input
+                  className="input-field"
+                  type="text"
+                  placeholder="Título"
+                  value={libroEditado.titulo}
+                  onChange={(e) =>
+                    setLibroEditado({
+                      ...libroEditado,
+                      titulo: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  className="input-field"
+                  type="text"
+                  placeholder="Género"
+                  value={libroEditado.genero}
+                  onChange={(e) =>
+                    setLibroEditado({
+                      ...libroEditado,
+                      genero: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  className="input-field"
+                  type="text"
+                  placeholder="Editorial"
+                  value={libroEditado.editorial}
+                  onChange={(e) =>
+                    setLibroEditado({
+                      ...libroEditado,
+                      editorial: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  className="input-field"
+                  type="text"
+                  placeholder="Autor"
+                  value={libroEditado.autor}
+                  onChange={(e) =>
+                    setLibroEditado({
+                      ...libroEditado,
+                      autor: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  className="input-field"
+                  type="text"
+                  placeholder="ID"
+                  value={libroEditado.id}
+                  onChange={(e) =>
+                    setLibroEditado({
+                      ...libroEditado,
+                      id: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  className="input-field"
+                  type="text"
+                  placeholder="URL de la imagen"
+                  value={libroEditado.img}
+                  onChange={(e) =>
+                    setLibroEditado({
+                      ...libroEditado,
+                      img: e.target.value,
+                    })
+                  }
+                />
+                <button className="button" onClick={editarLibro}>
+                  Guardar
+                </button>
+                <button className="button" onClick={closeModal}>
+                  Cancelar
+                </button>
+              </div>
+            ) : (
+              <div>
+                {libro.titulo}
+                <button className="button" onClick={() => openModal(libro._id)}>
+                  Editar
+                </button>
+                <button className="button" onClick={() => eliminarLibro(libro._id)}>
+                  Eliminar
+                </button>
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    {/* Modal de edición */}
+    <Modal
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      contentLabel="Editar Libro"
+      className="modalEdit"
+      overlayClassName="modal-overlay"
+    >
+      <h2>Editar Libro</h2>
+      <div className="form-item">
+        <input
+          className="input-field"
+          type="text"
+          placeholder="Título"
+          value={libroEditado.titulo}
+          onChange={(e) =>
+            setLibroEditado({ ...libroEditado, titulo: e.target.value })
+          }
+        />
+        <input
+          className="input-field"
+          type="text"
+          placeholder="Género"
+          value={libroEditado.genero}
+          onChange={(e) =>
+            setLibroEditado({ ...libroEditado, genero: e.target.value })
+          }
+        />
+        <input
+          className="input-field"
+          type="text"
+          placeholder="Editorial"
+          value={libroEditado.editorial}
+          onChange={(e) =>
+            setLibroEditado({ ...libroEditado, editorial: e.target.value })
+          }
+        />
+        <input
+          className="input-field"
+          type="text"
+          placeholder="Autor"
+          value={libroEditado.autor}
+          onChange={(e) =>
+            setLibroEditado({ ...libroEditado, autor: e.target.value })
+          }
+        />
+        <input
+          className="input-field"
+          type="text"
+          placeholder="ID"
+          value={libroEditado.id}
+          onChange={(e) =>
+            setLibroEditado({ ...libroEditado, id: e.target.value })
+          }
+        />
+        <input
+          className="input-field"
+          type="text"
+          placeholder="URL de la imagen"
+          value={libroEditado.img}
+          onChange={(e) =>
+            setLibroEditado({ ...libroEditado, img: e.target.value })
+          }
+        />
+        <button className="button" onClick={editarLibro}>
+          Guardar
+        </button>
+        <button className="button" onClick={closeModal}>
+          Cancelar
+        </button>
+      </div>
+    </Modal>
+  </div>
   );
 };
 

@@ -21,8 +21,8 @@ export default class producto {
     static async createProducto(req, res) {
         const nuevoProducto = req.body;
         try {
-            const resultado = await productos.insertOne(nuevoProducto);
-            res.status(201).json(resultado);
+            await productos.insertOne(nuevoProducto);
+            res.status(200).json({ mensaje: 'Producto actualizado correctamente' });
         } catch (error) {
             res.status(500).json({ error: 'Error al crear el producto' });
         }
