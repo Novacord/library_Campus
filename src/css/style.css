@@ -644,7 +644,7 @@ footer div{
   height: auto;
 }
 
-.reservas-container {
+.reservas-containers{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
@@ -659,7 +659,7 @@ footer div{
 
 /* Media query para dispositivos móviles */
 @media (max-width: 768px) {
-  .reservas-container {
+  .reservas-containers {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }

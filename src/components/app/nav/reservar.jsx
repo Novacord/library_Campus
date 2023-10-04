@@ -25,7 +25,7 @@ const Reservar = () => {
 
   const deleteReservation = async () => {
     try {
-      await axios.delete(`http://127.10.10.10:3000/api/reservas/${reservationIdToDelete}`);
+      await axios.delete(`http://192.168.129.72:5076/api/reservas/${reservationIdToDelete}`);
       // Actualizar el estado de reservas después de eliminar
       setReservas(reservas.filter((reserva) => reserva._id !== reservationIdToDelete));
       closeModal(); // Cierra la modal después de eliminar
@@ -48,7 +48,7 @@ const Reservar = () => {
 
     // Realiza la solicitud GET a la API con el ID de usuario como parte de la URL
     axios
-      .get(`http://127.10.10.10:3000/api/reservas/IdUser/${user.id}`)
+      .get(`http://192.168.129.72:5076/api/reservas/IdUser/${user.id}`)
       .then((response) => {
         // Actualiza el estado con los datos de la API
         setReservas(response.data);
@@ -66,7 +66,7 @@ const Reservar = () => {
       {error ? (
         <p>{error}</p>
       ) : (
-        <div className="reservas-container">
+        <div className="reservas-containers">
           {reservas.map((reserva, index) => (
             <div key={reserva._id} className="reserva">
               <button className="delete-button" onClick={() => openModal(reserva._id)}>X</button>

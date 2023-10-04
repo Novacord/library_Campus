@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Nav from './app/nav';
 import Home from './app/nav/home';
-import { AuthProvider, AutRoute } from './app/auth';
+import { AuthProvider, AutRoute, AutRouteAdmin } from './app/auth';
 import Informacion from './app/nav/informacion';
 import Login from './app/login';
 import Logoaut from './app/nav/logoaut';
@@ -39,14 +39,14 @@ const App = () => {
             <Route path="/informacion" element={<Informacion />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logoaut" element={<AutRoute><Logoaut /></AutRoute>} />
-            <Route path="/loguatAdmin" element={<LogautAdmin />} />
+            <Route path="/loguatAdmin" element={<AutRouteAdmin><LogautAdmin /></AutRouteAdmin>} />
             <Route path="/perfil" element={<AutRoute><Perfil /></AutRoute>} />
-            <Route path="/reservar" element={<Reservar />} />
-            <Route path="/reservar-usuario" element={<Reservar />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/admin/prestamos" element={<Prestamos />} />
-            <Route path="/admin/libros" element={<Libros />} />
-            <Route path="/admin/reservas" element={<Reservas />} />
+            <Route path="/reservar" element={<AutRoute><Reservar /></AutRoute>} />
+            <Route path="/reservar-usuario" element={<AutRoute><Reservar /></AutRoute>} />
+            <Route path="/admin" element={<AutRouteAdmin><Admin /></AutRouteAdmin>} />
+            <Route path="/admin/prestamos" element={<AutRouteAdmin><Prestamos /></AutRouteAdmin>} />
+            <Route path="/admin/libros" element={<AutRouteAdmin><Libros /></AutRouteAdmin>} />
+            <Route path="/admin/reservas" element={<AutRouteAdmin><Reservas /></AutRouteAdmin>} />
             <Route path="/error" element={<Error />} />
             <Route path="*" element={<p>Not Found</p>} />
           </Routes>

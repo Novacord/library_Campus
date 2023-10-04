@@ -8,8 +8,7 @@ const Logoaut = () => {
     const handleClose = async () => {
         sessionStorage.removeItem('user');
 
-        // Realiza una solicitud fetch a http://127.10.10.10:3000/api/user/logout
-        const response = await fetch('http://127.10.10.10:3000/api/user/logout');
+        const response = await fetch('http://192.168.129.72:5076/api/user/logout');
 
         // Verifica si la solicitud fetch fue exitosa
         if (response.ok) {

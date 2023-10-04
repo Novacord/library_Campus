@@ -35,21 +35,26 @@ function useAuth(){
     return auth
 }
 
-function AutRoute(props){
+function AutRoute(props) {
     const auth = useAuth()
-
-    const items = sessionStorage.getItem('items');
-    if (items) {
-        // Redirige al usuario a la ruta principal
+    const items = sessionStorage.getItem('user');
+    console.log(items)
+    if (!items) { 
         return <Navigate to="/" />
     }
+    return props.children
+}
 
-    auth.user = items
 
-    if (auth.user) {
-        return <Navigate to="/login" />
+function AutRouteAdmin(props){
+    const auth = useAuth()
+
+    const items = sessionStorage.getItem('admin');
+    if (!items) {
+        return <Navigate to="/" />
     }
 
     return props.children
 }
-export { AuthProvider, useAuth, AutRoute }
+
+export { AuthProvider, useAuth, AutRoute, AutRouteAdmin }

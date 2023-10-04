@@ -15,7 +15,7 @@ const Prestamos = () => {
 
     useEffect(() => {
         // Realizar una solicitud para obtener la lista de préstamos al cargar el componente
-        axios.get("http://127.10.10.10:3000/api/prestamos")
+        axios.get("http://192.168.129.72:5076/api/prestamos")
             .then((response) => {
                 setPrestamos(response.data);
             })
@@ -24,7 +24,7 @@ const Prestamos = () => {
             });
 
         // Realizar una solicitud para obtener la lista de libros disponibles
-        axios.get("http://127.10.10.10:3000/api/productos")
+        axios.get("http://192.168.129.72:5076/api/productos")
             .then((response) => {
                 setLibros(response.data);
             })
@@ -34,7 +34,7 @@ const Prestamos = () => {
     }, []);
 
     const handleEliminarPrestamo = (id) => {
-        axios.delete(`http://127.10.10.10:3000/api/prestamos/${id}`)
+        axios.delete(`http://192.168.129.72:5076/api/prestamos/${id}`)
             .then(() => {
                 // Eliminar el préstamo de la lista después de eliminarlo en la base de datos
                 setPrestamos(prestamos.filter((prestamo) => prestamo._id !== id));
@@ -53,7 +53,7 @@ const Prestamos = () => {
     };
 
     const handleCrearPrestamo = () => {
-        axios.post("http://127.10.10.10:3000/api/prestamos", nuevoPrestamo)
+        axios.post("http://192.168.129.72:5076/api/prestamos", nuevoPrestamo)
             .then((response) => {
                 console.log("Prestamo creado:", response.data);
                 setPrestamos([...prestamos, response.data]); // Agregar el nuevo préstamo a la lista

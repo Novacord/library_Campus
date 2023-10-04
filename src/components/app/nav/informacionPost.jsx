@@ -1,7 +1,7 @@
 import axios from "axios";
 
 function  obtenerLibros() {
-    const url = "http://127.10.10.10:3000/api/productos/";
+    const url = "http://192.168.129.72:5076/api/productos/";
   
     return axios.get(url)
       .then((response) => {

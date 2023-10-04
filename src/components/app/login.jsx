@@ -31,7 +31,7 @@ const Login = () => {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
       
-        const response = await axios.post('http://127.10.10.10:3000/api/user/login/admin', {
+        const response = await axios.post('http://192.168.129.72:5076/api/user/login/admin', {
           username: username,
           password: password,
         });
@@ -53,7 +53,7 @@ const Login = () => {
             <div className='div-centrado'>
                 <button type="submit" className="boton-grande" onClick={()=>{
                     window.open(
-                        "http://127.10.10.10:3000/api/user/callback",
+                        "http://192.168.129.72:5076/api/user/callback",
                         "targetWindow",
                         `
                         toolbar=no,
@@ -67,7 +67,7 @@ const Login = () => {
                         `
                     )
                     const popup =  window.open(
-                        "http://127.10.10.10:3000/api/user/callback",
+                        "http://192.168.129.72:5076/api/user/callback",
                         "targetWindow",
                         `
                         toolbar=no,
@@ -81,7 +81,7 @@ const Login = () => {
                         `
                     )
                     window.addEventListener("message", event => {
-                        if (event.origin === 'http://127.10.10.10:3000'){
+                        if (event.origin === 'http://192.168.129.72:5076'){
                             if(event.data){
                                 const isCampusLandsMember = event.data.guilds.some((guild) => guild.name === CAMPUS_LANDS_SERVER_NAME);
                                 if (isCampusLandsMember) {

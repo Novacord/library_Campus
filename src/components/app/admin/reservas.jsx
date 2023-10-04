@@ -7,7 +7,7 @@ const Reservas = () => {
 
   useEffect(() => {
     // Realiza una solicitud GET para obtener todas las reservas con los detalles de los libros
-    axios.get("http://127.10.10.10:3000/api/reservas/")
+    axios.get("http://192.168.129.72:5076/api/reservas/")
       .then((response) => {
         const todasLasReservas = response.data;
         const reservasEnEspera = todasLasReservas.filter((reserva) => reserva.estado === "pendiente");
@@ -22,7 +22,7 @@ const Reservas = () => {
 
   const aceptarReserva = (reservaId) => {
     // Realiza una solicitud PUT para aceptar una reserva específica
-    axios.put(`http://127.10.10.10:3000/api/reservas/${reservaId}`, { estado: "aceptado" })
+    axios.put(`http://192.168.129.72:5076/api/reservas/${reservaId}`, { estado: "aceptado" })
       .then((response) => {
         // Actualiza el estado de la reserva en el cliente
         const updatedReservasEnEspera = reservasEnEspera.map((reserva) => {
@@ -47,7 +47,7 @@ const Reservas = () => {
 
   const marcarComoDevuelta = (reservaId) => {
     // Realiza una solicitud DELETE para eliminar una reserva específica
-    axios.delete(`http://127.10.10.10:3000/api/reservas/${reservaId}`)
+    axios.delete(`http://192.168.129.72:5076/api/reservas/${reservaId}`)
       .then((response) => {
         // Elimina la reserva de la lista de reservas aceptadas en el cliente
         const updatedReservasAceptadas = reservasAceptadas.filter((reserva) => reserva._id !== reservaId);

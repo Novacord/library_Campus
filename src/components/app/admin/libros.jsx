@@ -4,7 +4,7 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-const apiUrl = "http://127.10.10.10:3000/api/productos/";
+const apiUrl = "http://192.168.129.72:5076/api/productos/";
 
 const Libros = () => {
   const [libros, setLibros] = useState([]);
@@ -25,7 +25,7 @@ const Libros = () => {
   // Función para cargar la lista de libros desde la API
   const cargarLibros = async () => {
     try {
-      const response = await axios.get("http://127.10.10.10:3000/api/productos/todos");
+      const response = await axios.get("http://192.168.129.72:5076/api/productos/todos");
       setLibros(response.data);
     } catch (error) {
       console.error("Error al cargar libros:", error);

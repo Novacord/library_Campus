@@ -18,7 +18,7 @@ const ListaLibros = () => {
   useEffect(() => {
     async function obtenerLibros() {
       try {
-        const respuesta = await axios.get("http://127.10.10.10:3000/api/productos/");
+        const respuesta = await axios.get("http://192.168.129.72:5076/api/productos/");
 
         if (respuesta.status === 200) {
           setLibros(respuesta.data);
@@ -53,7 +53,7 @@ const ListaLibros = () => {
         estado: 'pendiente'
       };
   
-      const respuesta = await axios.post("http://127.10.10.10:3000/api/reservas/", reservaData);
+      const respuesta = await axios.post("http://192.168.129.72:5076/api/reservas/", reservaData);
   
       if (respuesta.status === 200) {
         console.log("Reserva exitosa.");
